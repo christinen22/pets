@@ -66,8 +66,12 @@ pets.forEach(pet =>  {          //forEach=funktion som gör att det körs en loo
 
 //let info = `<li>Pet's name is ${pet.name}</li>`  //template string, ska alltid användas när man använder en variabel ${}
 
-let info = `<li>${pet.name} is a ${pet.species} of ${pet.age} years old. His owner is ${pet.owner.name} and his favorite hobbies are ${pet.hobbies}</li>`
-
+let info;
+if (pet.owner) {
+    info = `<li>${pet.name} is a ${pet.species} of ${pet.age} years old. His owner is ${pet.owner.name} and his favorite hobbies are ${pet.hobbies}</li>`
+} else {
+    info = `<li>${pet.name} is a ${pet.species} of ${pet.age} years old and his favorite hobbies are ${pet.hobbies}. Please adopt him!</li>`
+}
 petsEl.innerHTML += info;
 
 } );
